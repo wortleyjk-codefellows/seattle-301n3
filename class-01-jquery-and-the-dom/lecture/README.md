@@ -1,3 +1,7 @@
-# Slides
+#jQuery and the DOM
 
-# Class videos
+## Slides
+
+## Notes & Key Terms
+
+## Class videos
