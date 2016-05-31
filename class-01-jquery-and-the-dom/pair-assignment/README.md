@@ -37,16 +37,17 @@ Here is a recommended workflow:
 Now find those `TODO` items in the code, and tackle one of them.
 
 1. Driver: In your terminal, change directory into the `pair-assignment` folder.
-1. Copy the starter code folder to a new folder named for your pair:
- - `cp -r starter-code/ sabrina-chris/`
-1. Now cd into that new pairs name folder. This is where you will write code.
+1. Now cd into that `starter-code` folder. This is where you will write code.
+1. Change to a new branch for the work that you will do - Use good Git workflow practices.
 1. Type `atom .` to open the new folder as a project in Atom.
 1. Use the Atom "Find in Project" feature to locate all the TODO items.
 1. Work through one or two TODO items, testing your code as you go, until you are happy with how it's working.
 
 ## Switch roles
 1. Driver: On GitHub, Add your navigator as a collaborator to your origin repo.
+  - This is done in the settings of your repository on GitHub.
 1. Navigator: You can now clone the driver's fork, to your own local dev environment (if you haven't already, create a main "301" directory that will be the parent directory for your own forked repo, and a "navigator" directory created within this main "301" directory - **not your repo directory** - that will now contain your partner's repo, and future partner repos). Since you are now a collaborator, you can `pull` and `push` changes to and from origin.
+  - Be sure to create and work from a different branch.
 1. Switch roles: The new driver now opens the code in Atom (see above), and has hands on the keyboard to work through the next one or two TODO items.
 
 ## Submit your assignment
@@ -55,8 +56,10 @@ When you are finished with your work (or if time runs out), then submit your wor
 
 1. Ensure that all your local changes are committed, and pushed to your `origin` repo.
 2. Visit the origin repo on github.com.
+1. Merge all of the code that you and your partner wrote by doing PRs to the Master branch, if you've not already done so.
 1. Create a new PR.
 1. Carefully review the PR, and ensure the code is going back to the upstream repo.
+  - You should see this when you make a new PR from your fork to the upstream class repo: `base fork: codefellows/301n3` `base: master` and `yourUser/301n3` `compare: master`
 1. Write a good descriptive summary of your changes:
   - Be sure to include how much time you spent on it, and who you worked with.
   - Briefly reflect on and summarize your process.
