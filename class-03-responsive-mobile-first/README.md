@@ -1,5 +1,9 @@
 # Class 3 - Mobile-First / Responsive Design and SMACSS
 
+## Daily Plan
+1. Code Review [Dan]
+2. RWD [Scott] *Need to outline this more*
+
 Let's develop some mobile/responsive super-powers!
 
 With a pair, make the blog responsive, so it hides the main navigation menu under a "Hamburger" link on small screens, and unfurls to a row of tab-like links on larger screens.
