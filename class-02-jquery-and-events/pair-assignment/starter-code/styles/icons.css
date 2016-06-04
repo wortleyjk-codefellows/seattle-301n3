@@ -23,7 +23,7 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.icon-home:before {
+.icon-home:after {
 	content: "\e908";
 }
 .icon-home3:before {

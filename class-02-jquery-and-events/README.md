@@ -1,4 +1,11 @@
 # Assignment for Class 2 - jQuery and Events
+## Daily Plan
+
+1. Code Review
+2. Events & Delegation
+3. Node/NPM - Live Server
+4. Icon Fonts - CSS before/after
+5. Lab preview
 
 Today we will work on adding a very common feature of web pages: single-page tabs.
 
