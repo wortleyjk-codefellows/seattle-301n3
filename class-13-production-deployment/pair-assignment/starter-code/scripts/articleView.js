@@ -57,6 +57,12 @@
     });
   };
 
+  articleView.toggleNavDisplay = function() {
+    $('.icon-menu').on('click', function(e) {
+      $('.main-nav ul').toggle();
+    });
+  };
+
   articleView.setTeasers = function() {
     $('.article-body *:nth-of-type(n+2)').hide();
 
@@ -113,6 +119,7 @@
     articleView.populateFilters();
     articleView.handleCategoryFilter();
     articleView.handleAuthorFilter();
+    articleView.toggleNavDisplay();
     articleView.setTeasers();
   };
 
