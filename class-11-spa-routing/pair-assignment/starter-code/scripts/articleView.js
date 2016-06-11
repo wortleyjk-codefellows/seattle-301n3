@@ -59,6 +59,12 @@
     $('.main-nav .tab:first').click();
   };
 
+  articleView.toggleNavDisplay = function() {
+    $('.icon-menu').on('click', function(e) {
+      $('.main-nav ul').toggle();
+    });
+  };
+
   articleView.setTeasers = function() {
     $('.article-body *:nth-of-type(n+2)').hide();
 
@@ -113,6 +119,7 @@
     articleView.handleCategoryFilter();
     articleView.handleAuthorFilter();
     articleView.handleMainNav();
+    articleView.toggleNavDisplay();
     articleView.setTeasers();
   };
 
