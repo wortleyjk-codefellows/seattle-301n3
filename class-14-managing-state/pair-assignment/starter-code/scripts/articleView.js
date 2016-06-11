@@ -81,6 +81,12 @@
   //   });
   // };
 
+  articleView.toggleNavDisplay = function() {
+    $('.icon-menu').on('click', function(e) {
+      $('.main-nav ul').toggle();
+    });
+  };
+
   articleView.initNewArticlePage = function() {
     $('#articles').show().siblings().hide();
 
