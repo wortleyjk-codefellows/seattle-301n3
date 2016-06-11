@@ -13,6 +13,7 @@ As we get more sophisticated, this is a good time to ensure our CSS styles are w
 ## Class videos
 - [Part 1 of 3](https://youtu.be/WFNzs5vKRjA)
 - [Part 2 of 3](https://youtu.be/JlEAMH6wKCE)
+- [Part 3 of 3](https://youtu.be/fKnwc8PjH7c)
 
 ## Useful Resources
  - [Google Fonts](www.google.com/fonts)
