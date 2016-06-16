@@ -44,22 +44,31 @@ Article.loadAll = function(rawData) {
 // This function will retrieve the data from either a local or remote source,
 // and process it, then hand off control to the View.
 Article.fetchAll = function() {
-  if (localStorage.rawData) {
-    // When rawData is already in localStorage,
-    // we can load it by calling the .loadAll function,
-    // and then render the index page (using the proper method on the articleView object).
-    Article.loadAll(//TODO: What do we pass in here to the .loadAll function?
-    );
-    articleView.someFunctionToCall//(); //TODO: Change this fake method call to the correct one that will render the index page.
+  if (localStorage.getItem('articleData')) {
+    // When rawData is already in localStorage, (DONE)
+    // we can load it by calling the .loadAll function, (DONE)
+    // and then render the index page (using the proper method on the articleView object). (DONE)
+
+
+    Article.loadAll(JSON.parse(localStorage.getItem('articleData')));
+    //TODO: What do we pass in here to the .loadAll function?
+    //articleView.someFunctionToCall//(); //TODO: Change this fake method call to the correct one that will render the index page. -DONE
+    articleView.initIndexPage();
   } else {
     // TODO: When we don't already have the rawData, we need to:
-    // 1. Retrieve the JSON file from the server with AJAX (which jQuery method is best for this?),
+    // 1. Retrieve the JSON file from the server with AJAX (which jQuery method is best for this?), -DONE
 
-    // 2. Store the resulting JSON data with the .loadAll method,
+    // 2. Store the resulting JSON data with the .loadAll method, -DONE
 
-    // 3. Cache it in localStorage so we can skip the server call next time,
+    // 3. Cache it in localStorage so we can skip the server call next time,-DONE
 
-    // 4. And then render the index page (perhaps with an articleView method?).
+    // 4. And then render the index page (perhaps with an articleView method?).-DONE
+
+    $.get('data/IpsumArticles.json',function(data){
+      Article.loadAll(data);
+      localStorage.setItem('articleData',JSON.stringify(data));
+      articleView.initIndexPage();
+    });
 
   }
 }
