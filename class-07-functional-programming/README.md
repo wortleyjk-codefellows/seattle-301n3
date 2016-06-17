@@ -9,6 +9,8 @@
   - Map
   - Filter
 3. Scope / Modular IIFE Structure [Scott]
+4. Git 301
+  - Merge Conflicts
 
 Step into the declarative paradigm.
 
