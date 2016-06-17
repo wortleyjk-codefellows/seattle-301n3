@@ -3,13 +3,14 @@
 ## Daily Plan
 *Intro to Models*
 
-1. Code Review [Scott]
 2. Request/Response Cycle [Scott]
   - URL/URI
   - DNS
   - HTTP Status Codes
-  - Req Headers
-  - Res Headers
+  - Request
+    - URL Method Headers
+  - Response
+    - Status Headers Body
   - Network Tab - Dev console
 3. JSON Review [Dan]
   - What is it? Why/How to use it?
