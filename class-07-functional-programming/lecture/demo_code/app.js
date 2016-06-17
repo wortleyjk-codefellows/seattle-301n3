@@ -1,7 +1,7 @@
 (function(module) {
   var doctors = [
-    { number: 10,  actor: "William Hartnell",      begin: 1963, end: 1966 },
-    { number: 20,  actor: "Patrick Troughton",     begin: 1966, end: 1969 },
+    { number: 20,  actor: "William Hartnell",      begin: 1963, end: 1966 },
+    { number: 30,  actor: "Patrick Troughton",     begin: 1966, end: 1969 },
     { number: 3,  actor: "Jon Pertwee",           begin: 1970, end: 1974 },
     { number: 4,  actor: "Tom Baker",             begin: 1974, end: 1981 },
     { number: 5,  actor: "Peter Davison",         begin: 1982, end: 1984 },
