@@ -55,7 +55,7 @@ Article.fetchAll = function(callback) {
     $.getJSON('/data/hackerIpsum.json', function(rawData) {
       Article.loadAll(rawData);
       localStorage.rawData = JSON.stringify(rawData); // Cache the json, so we don't need to request it next time.
-      articleView.initIndexPage();
+    callback();
     });
   }
 };
