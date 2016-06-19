@@ -121,15 +121,16 @@
   };
 
   articleView.initAdminPage = function() {
-    // TODO: Call the Handlebars `.compile` function, which will return a function for you to use where needed.
-    var template; // = ...?
+    // (Done)TODO: Call the Handlebars `.compile` function, which will return a function for you to use where needed.
+    // = ...?
 
     // DONE: We use `forEach` here because we are relying on the side-effects of the callback function:
     // appending to the DOM.
     // The callback is not required to return anything.
     Article.numWordsByAuthor().forEach(function(stat) {
+      var template = Handlebars.compile($('#author-template').html());
       $('.author-stats').append(template(stat));
-    })
+    });
 
     // DONE: Simply write the correct values to the page:
     $('#blog-stats .articles').text(Article.all.length);
