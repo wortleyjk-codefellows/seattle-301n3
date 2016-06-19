@@ -1,5 +1,7 @@
-// TODO: Wrap the entire contents of this file in an IIFE.
+// TODO:(DONE) Wrap the entire contents of this file in an IIFE.
 // Pass in to the IIFE a module, upon which objects can be attached for later access.
+
+(function(module){
 function Article (opts) {
   this.author = opts.author;
   this.authorUrl = opts.authorUrl;
@@ -39,15 +41,16 @@ Article.loadAll = function(rawData) {
 // This function will retrieve the data from either a local or remote source,
 // and process it, then hand off control to the View.
 
-// TODO: Refactor this function, and provide it with a parameter of a callback function
+//(DONE) TODO: Refactor this function, and provide it with a parameter of a callback function
 //(for now just a placeholder, but to be referenced at call time as a view function)
 // to execute once the loading of articles is done. We do this because we might want
 // to call other view functions, and not just this initIndexPage() that we are replacing.
 // Now, instead of calling articleView.initIndexPage(), we can simply run our callback.
-Article.fetchAll = function() {
+Article.fetchAll = function(callback) {
   if (localStorage.rawData) {
     Article.loadAll(JSON.parse(localStorage.rawData));
-    articleView.initIndexPage();
+    //articleView.initIndexPage(); //swapping with a callback
+    callback();
   } else {
     $.getJSON('/data/hackerIpsum.json', function(rawData) {
       Article.loadAll(rawData);
@@ -60,24 +63,60 @@ Article.fetchAll = function() {
 // TODO: Chain together a `map` and a `reduce` call to get a rough count of all words in all articles.
 Article.numWordsAll = function() {
   return Article.all.map(function(article) {
-    return // Get the total number of words in this article
+    // Get the total number of words in this article (Maybe?)
+    return article.body.split(' ').length;
   })
   .reduce(function(a, b) {
-    return // Sum up all the values in the collection
+    // Sum up all the values in the collection (Maybe?)
+    return a + b;
   })
 };
 
-// TODO: Chain together a `map` and a `reduce` call to produce an array of unique author names.
+//(Done) TODO: Chain together a `map` and a `reduce` call to produce an array of unique author names.
 Article.allAuthors = function() {
-  return // Don't forget to read the docs on map and reduce!
+  // Don't forget to read the docs on map and reduce!
+  return Article.all.map(function(ele){
+    return ele.author;
+  })
+  .reduce(function(a, b){
+    a.push({authorName: b});
+    return a;
+  },[]);
 };
 
 Article.numWordsByAuthor = function() {
   // TODO: Transform each author string into an object with 2 properties: One for
   // the author's name, and one for the total number of words across all articles written by the specified author.
-  return Article.allAuthors().map(function(author) {
-    return {
-      // someKey: someValOrFunctionCall().map(...).reduce(...), ...
+  // return Article.allAuthors().map(function(author) {
+  //   return {
+  //     // someKey: someValOrFunctionCall().map(...).reduce(...), ...
+  //     // authorName: Article.all.filter(function(value){
+  //     //   return value.author == author;
+  //     // })
+
+  //     authName: author.authorName,
+  //     numWords: Article.all.filter(function(value){
+  //       return value.author = author;
+  //     }).map(function(article){
+  //       return article.body.split(' ').length;
+  //     }).reduce(function(a, b){
+  //       a + b;
+  //     })
+  //   }
+  // })
+  return Article.allAuthors().map(function(author){
+    return{
+      nameOfAuthor : author.authorName,
+      wordCount : Article.all.filter(function(value){
+          return value.author == author.authorName;
+      })
+      .map(function(ele){
+        return ele.body.split(' ').length;
+      }).reduce(function(a, b){
+        return a + b;
+      })
     }
   })
 };
+module.Article = Article;
+})(window);
