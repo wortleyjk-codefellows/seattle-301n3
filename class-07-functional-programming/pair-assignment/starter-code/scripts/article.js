@@ -79,7 +79,9 @@ Article.allAuthors = function() {
     return ele.author;
   })
   .reduce(function(a, b){
-    a.push({authorName: b});
+    if(a.indexOf(b) === -1) {
+      a.push(b);
+    }
     return a;
   },[]);
 };
@@ -90,25 +92,12 @@ Article.numWordsByAuthor = function() {
   // return Article.allAuthors().map(function(author) {
   //   return {
   //     // someKey: someValOrFunctionCall().map(...).reduce(...), ...
-  //     // authorName: Article.all.filter(function(value){
-  //     //   return value.author == author;
-  //     // })
 
-  //     authName: author.authorName,
-  //     numWords: Article.all.filter(function(value){
-  //       return value.author = author;
-  //     }).map(function(article){
-  //       return article.body.split(' ').length;
-  //     }).reduce(function(a, b){
-  //       a + b;
-  //     })
-  //   }
-  // })
   return Article.allAuthors().map(function(author){
-    return{
-      nameOfAuthor : author.authorName,
+    return {
+      author : author,
       wordCount : Article.all.filter(function(value){
-          return value.author == author.authorName;
+          return value.author == author;
       })
       .map(function(ele){
         return ele.body.split(' ').length;
