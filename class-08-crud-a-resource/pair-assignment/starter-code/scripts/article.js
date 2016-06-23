@@ -12,7 +12,7 @@
   Article.prototype.toHtml = function() {
     var template = Handlebars.compile($('#article-template').text());
 
-    this.daysAgo = parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000);
+    this.daysAgo = parseInt((new Date() - new Date(this.publishedOn)) / 60 / 60 / 24 / 1000);
     this.publishStatus = this.publishedOn ? 'published ' + this.daysAgo + ' days ago' : '(draft)';
     this.body = marked(this.body);
 
@@ -58,8 +58,8 @@
     webDB.execute(
       [
         {
-   'sql': 'DELETE FROM Articles (title) VALUES (?)',
-   'data' : [this.category]
+          'sql': 'DELETE FROM Articles WHERE title = ?;',
+          'data' : [this.title]
           /* ... */
         }
       ],
@@ -73,8 +73,8 @@
       [
         {
           //'sql': 'UPDATE INTO Articles (title, category, author, authorUrl, publishedOn, body) VALUES (?, ?, ?, ?, ?, ?)',
-          'sql': 'UPDATE Articles SET (title) WHERE(id) VALUES(?,?)',
-          'data': [this.title,this.category]
+          'sql': 'UPDATE Articles SET (title = ?, category = ?, author = ?, authorUrl = ?, publishedOn = ?, body = ?) WHERE id=?;',
+          'data': [this.title, this.category, this.author, this.authorUrl, this.publishedOn, this.body, this.id]
         }
       ],
       callback
