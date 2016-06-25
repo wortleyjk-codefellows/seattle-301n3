@@ -1,7 +1,7 @@
 # Mapping database records to Google Maps
 This is a pair programming exercise. Please work in your current pairs to complete this assignment.
 
-<!-- NOTE: Upon opening the starter code with Live Server, it will take your machine approx. 30 seconds to build the table in WebDB.  -->
+*NOTE: Upon opening the starter code with Live Server, it will take your machine approx. 30 seconds to build the table in WebDB.*
 
 ### Outcome:
 Your goal with this assignment is to exercise your sql query skills, in working with a large dataset. You will wire up this app to retrieve information from the DB to populate the search filters, and then apply your search parameters to query the DB again and apply the result to a Google Map marker on the page.
