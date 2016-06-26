@@ -10,7 +10,7 @@
       'latitude INTEGER NOT NULL,' +
       'longitude INTEGER NOT NULL,' +
       'population INTEGER NOT NULL,' +
-      'zip INTEGER NOT NULL)',
+      'zip VARCHAR(255) NOT NULL)',
       function(result) {
         console.log('Successfully set up the zips table.', result);
         if (callback) callback();
@@ -21,6 +21,12 @@
   zips.truncateTable = function(callback) {
     webDB.execute(
       'DELETE FROM zips;',
+      callback
+    );
+  };
+  zips.deleteTable = function(callback) {
+    webDB.execute(
+      'DROP TABLE zips;',
       callback
     );
   };
